@@ -1,0 +1,7 @@
+0.0.1.1 : 
+1. max exp to 5s
+2. add 3 times average at under 10 nits.
+
+0.0.1.2:
+1. remove tspd class
+2. modify class name and variables to java style

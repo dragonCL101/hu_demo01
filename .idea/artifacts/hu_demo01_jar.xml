@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact name="hu_demo01:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/hu_demo01_jar</output-path>
+    <root id="root">
+      <element id="archive" name="hu_demo01.jar">
+        <element id="module-output" name="hu_demo01" />
+      </element>
+      <element id="file-copy" path="$PROJECT_DIR$/jna-4.4.0.jar" />
+    </root>
+  </artifact>
+</component>
