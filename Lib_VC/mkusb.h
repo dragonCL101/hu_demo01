@@ -14,7 +14,7 @@
 	extern "C" {
 #endif
 
-#define CALLTYPE __cdecl //__stdcall
+#define CALLTYPE __cdecl
 //#define CALLTYPE __stdcall
 DLLEXP unsigned int CALLTYPE mk_version();
 
@@ -50,6 +50,8 @@ DLLEXP int  CALLTYPE mk_OpenSpDev_Angle(int i);
 
 DLLEXP bool CALLTYPE mk_CloseSpDev(int i);
 
+DLLEXP bool CALLTYPE mk_Msr_SysRst(int i);
+
 DLLEXP bool CALLTYPE mk_Msr_Capture(int i, unsigned short isAuto, unsigned int ExpTime);
 
 DLLEXP bool CALLTYPE mk_Msr_CaptureAvg(int i, unsigned short isAuto, unsigned int ExpTime, unsigned int count);
@@ -72,6 +74,8 @@ DLLEXP bool CALLTYPE mk_Msr_SetLightMode(int i, unsigned int mode, unsigned int 
 
 DLLEXP bool CALLTYPE mk_Msr_SetLightModeFlt(int i, unsigned int mode, float freq);
 
+DLLEXP bool CALLTYPE mk_Msr_SetLightMode_SamplingMode(int i, unsigned int samplingmode, unsigned int samplingmode_prescan);
+
 DLLEXP bool CALLTYPE mk_Msr_SetLightMode_CycleNumber(int i, unsigned int cycnumber);
 
 DLLEXP bool CALLTYPE mk_sr_SetLightMode_LCyc_Align(int i, unsigned int mode);
@@ -80,7 +84,11 @@ DLLEXP bool CALLTYPE mk_Msr_SetLightMode_LCyc_LeastSampleNumber(int i, unsigned 
 
 DLLEXP bool CALLTYPE mk_Msr_SetLightMode_PreScanPara(int i, float time, float level);
 
+DLLEXP bool CALLTYPE mk_Msr_SetAutoExpLevel(int i, unsigned int level, unsigned int value);
+
 DLLEXP bool CALLTYPE mk_Msr_SetDCOffset_Enable(int i, unsigned int ctrl);
+
+DLLEXP bool CALLTYPE mk_Msr_SetBoxcarFilter(int i, unsigned int ctrl, unsigned int enHR, int size);
 
 DLLEXP bool CALLTYPE mk_Msr_SetLightMode_AutoExp(int i, unsigned int mode);
 
@@ -124,6 +132,10 @@ DLLEXP bool CALLTYPE mk_Msr_SetAutoDarkTemp(int i, unsigned int ctrl, float valu
 
 DLLEXP bool CALLTYPE mk_GetData(int i, int type, float* data);
 
+DLLEXP bool CALLTYPE mk_GetDominantWavelength(int i, float ref_x, float ref_y, float* data);
+
+DLLEXP bool CALLTYPE mk_GetDominantWavelength_AssignXY(int i, float x, float y, float wx, float wy, float* data);
+
 DLLEXP bool CALLTYPE mk_GetSpectrum(int i, int str, int stp, float* data);
 
 DLLEXP bool CALLTYPE mk_SaveSpectrumToFile(int i, wchar_t *file);
@@ -163,6 +175,18 @@ DLLEXP bool CALLTYPE mk_flk_GetData(int i, int type, float* data);
 DLLEXP bool CALLTYPE mk_flk_GetTimeDomainWaveform(int i, int size, float* data);
 
 DLLEXP bool CALLTYPE mk_flk_GetFreqDomainWaveform(int i, int size, float *freq, float* data);
+
+DLLEXP bool CALLTYPE mi_flk_fdaCalc_MainFreqCond(int i, float ul, float ll);
+
+DLLEXP bool CALLTYPE mi_flk_fdaCalc_SubFreqCond(int i, float ul, float ll);
+
+DLLEXP bool CALLTYPE mk_flk_SaveFile_uFlickerFormat(int i, wchar_t* filename, char *modelname, char *sn, char *time);
+
+DLLEXP bool CALLTYPE mk_mflk_Monitor_setParaEx(int i, unsigned int samplerate, unsigned int sizeblk, unsigned int numblk, unsigned int scansize, unsigned int autogain, unsigned int gainch);
+
+DLLEXP bool CALLTYPE mk_mflk_Monitor_SetLockFreqPara(int i, unsigned int islock, float freq);
+
+DLLEXP bool CALLTYPE  mk_mflk_Monitor_getFreq(int i, float *target_freq);
 
 DLLEXP bool CALLTYPE mk_Msr_GetErrMsg(int i, int *errcode, char *msg);
 

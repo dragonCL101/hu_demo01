@@ -1,10 +1,11 @@
 package com.uprtek.test;
+import com.huawei.cloudate.spectro.UprMeterMgr;
 import com.huawei.cloudate.spectro.exception.SpectroExcetion;
 import com.huawei.cloudate.spectro.UprMeter;
 
 import static java.lang.Thread.*;
 
-public class main {
+public class cmdModeTest {
     public static void main(String[] args) throws SpectroExcetion, InterruptedException {
         //test_init();
         fun_test();
@@ -25,9 +26,37 @@ public class main {
 
     static public void fun_test() throws SpectroExcetion {
         //String sn = "17A00195";
-        String sn = "920OF101";
-        //String sn = "18J00272";
-        UprMeter meter = new UprMeter();
+        //String sn = "920OF101";
+        String sn = "16L00998";
+        UprMeter meter;
+
+        UprMeterMgr mgr = new UprMeterMgr();
+        System.out.printf("Require device connection sn : %s\n", sn);
+        System.out.printf("Waiting for device connected...\n");
+        while (true) {
+            if (mgr.isUpdate()) {
+                int cnt = mgr.getDevNum();
+                if (cnt >= 1)
+                    break;
+            } else {
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        // using UprMeterMgr to create UprMeter or create by UprMeter itself.
+        if(true) {
+            meter = mgr.openDev(sn);
+        }else{
+            meter = new UprMeter();
+        }
+        if(meter==null){
+            System.out.printf("Create UprMeter fail.\n");
+            return;
+        }
 
         System.out.printf("Device Init Start....\n");
         if(!meter.init(sn)){

@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="hu_demo01:jar" />
+    </artifacts-to-build>
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="cf3ec747-5e7e-4c15-85b4-a3f8aecd5933" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib_VC/SiUSBXp.h" beforeDir="false" afterPath="$PROJECT_DIR$/Lib_VC/SiUSBXp.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib_VC/mk.h" beforeDir="false" afterPath="$PROJECT_DIR$/Lib_VC/mk.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib_VC/mkusb.h" beforeDir="false" afterPath="$PROJECT_DIR$/Lib_VC/mkusb.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib_VC/x64/mkusb.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Lib_VC/x64/mkusb.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib_VC/x64/mkusb.lib" beforeDir="false" afterPath="$PROJECT_DIR$/Lib_VC/x64/mkusb.lib" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib_VC/x86/mkusb.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Lib_VC/x86/mkusb.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lib_VC/x86/mkusb.lib" beforeDir="false" afterPath="$PROJECT_DIR$/Lib_VC/x86/mkusb.lib" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/reversion history.txt" beforeDir="false" afterPath="$PROJECT_DIR$/doc/reversion history.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/hu_demo01/com/huawei/cloudate/spectro/MkLib.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/hu_demo01/com/huawei/cloudate/spectro/MkLib.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/hu_demo01/com/huawei/cloudate/spectro/UprMeter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/hu_demo01/com/huawei/cloudate/spectro/UprMeter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/hu_demo01/com/uprtek/test/main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/spd.csv" beforeDir="false" afterPath="$PROJECT_DIR$/spd.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/huawei/cloudate/spectro/MkLib.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/huawei/cloudate/spectro/MkLib.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/huawei/cloudate/spectro/UprMeter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/huawei/cloudate/spectro/UprMeter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/uprtek/test/StressTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/uprtek/test/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/uprtek/test/cmdModeTest.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1iwYYdSFzzEIAVkIsBWk1oldj7C" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH" value="301" />
+    <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="379" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="shared-indexes" />
+  </component>
+  <component name="RunManager" selected="Application.cmdModeTest">
+    <configuration name="MultiTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.uprtek.test.MultiTest" />
+      <module name="hu_demo01" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.uprtek.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MultiTestUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.uprtek.test.MultiTestUI" />
+      <module name="hu_demo01" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.uprtek.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StressTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.uprtek.test.StressTest" />
+      <module name="hu_demo01" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.uprtek.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Stresstest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.uprtek.test.Stresstest" />
+      <module name="hu_demo01" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.uprtek.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="cmdModeTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.uprtek.test.cmdModeTest" />
+      <module name="hu_demo01" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.uprtek.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.cmdModeTest" />
+        <item itemvalue="Application.MultiTestUI" />
+        <item itemvalue="Application.MultiTest" />
+        <item itemvalue="Application.StressTest" />
+        <item itemvalue="Application.Stresstest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="cf3ec747-5e7e-4c15-85b4-a3f8aecd5933" name="Default Changelist" comment="" />
+      <created>1602820172832</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1602820172832</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$PROJECT_DIR$/../.jdks/openjdk-14.0.2/lib/src.zip!/java.base/java/io/BufferedWriter.java</url>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$USER_HOME$/.jdks/openjdk-14.0.2/lib/src.zip!/java.base/java/util/concurrent/BlockingQueue.java</url>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/hu_demo01_git$MultiTestUI.ic" NAME="MultiTestUI Coverage Results" MODIFIED="1614395481793" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.uprtek.test.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/hu_demo01_git$StressTest.ic" NAME="StressTest Coverage Results" MODIFIED="1612858089045" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.uprtek.test.*</FILTER>
+    </SUITE>
+  </component>
+</project>

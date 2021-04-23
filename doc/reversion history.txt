@@ -5,3 +5,10 @@
 0.0.1.2:
 1. remove tspd class
 2. modify class name and variables to java style
+
+0.0.1.3:
+1. add UprMeterMgr(factory) to generate UprMeter
+2. add MultiTestUI and JobMsr
+
+0.0.1.4:
+1. add setBoxcarfilter in UprMeter

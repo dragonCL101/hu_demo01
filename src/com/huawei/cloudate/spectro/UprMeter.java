@@ -14,6 +14,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -21,7 +22,7 @@ import java.util.Arrays;
 
 public class UprMeter implements SpectroStrategy{
 
-    private int mMKLIB_JAVA_VER = 0x00000102;  // 0.0.1.2, version of java sdk
+    private int mMKLIB_JAVA_VER = 0x00000103;  // 0.0.1.3, version of java sdk
     private long mVersion = 0;  // version of dll
 
     /**
@@ -33,7 +34,9 @@ public class UprMeter implements SpectroStrategy{
     private int mCalChSpdWls = 0;
     private int mCalChCMCh = 0;
     private float mSyncFreq = 60;
-    private int mMaxExp = 5000000;   // 5s
+    //private int mMaxExp = 5000000;   // 5s
+    private int mMaxExp = 1000000;   // 1s
+    //private int mMaxExp = 500000;   // 500ms
     private int mCycNum = 1;
     private int mSpdLen = 401;
 
@@ -48,6 +51,7 @@ public class UprMeter implements SpectroStrategy{
     private String mHWVer;
     private String mFWVer;
     private int mDevId = -1;
+    private UprMeterMgr mMgr;
 
     /**
      * color data, lv, x, y, and spectrum.
@@ -62,58 +66,49 @@ public class UprMeter implements SpectroStrategy{
     public float mValueExpTime;
     public float mValueTackTime;
     public float [] mValueSpd;
+    public double [] mValueSpd_double;
     public float [] mValuewavelength;
 
+    public UprMeter(){
+        mDevId = -1;
+    }
+    public void setmDevId(int id, String sn, String name){
+        mDevId = id;
+        mOptSN = sn;
+        mDevName = name;
+    }
     @Override
     public boolean init(String sn) throws SpectroExcetion {
-        if(!initMKUSB())
-            throw new SpectroExcetion("mklib init fail");
-        mVersion = MkLib.Instance.mk_version();
-        // wait for device
-        int unit = 100;
-        int tout = MAX_TIMEOUT/unit;
-        while(true) {
-            if (openDevBySN(sn))
-                break;
-            tout--;
-            if(tout==0) {
-                mErrMsg = "Err, init fun, failed to get device.";
-                return false;
-            }
-            try {
-                Thread.sleep(unit);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+        if(mDevId < 0){
+            if(!openDevBySN(sn)) {
+                String s = String.format("Open device failed. %s", sn);
+                throw new SpectroExcetion(s);
             }
         }
-
-        if(!msr_Dark(mDevId))
+        if(!msr_Dark(mDevId)) {
+            System.out.printf("%s", mErrMsg);
             throw new SpectroExcetion(mErrMsg);
-
+        }
+        mValuewavelength = new float[401];
+        mValueSpd = new float [401];
+        mValueSpd_double = new double[401];
         return true;
     }
 
     @Override
     public double[] measure() throws SpectroExcetion {
 
-//        if(!setPara(mDevId))
-//            throw new SpectroExcetion("err, Parameter setting fail.");
-
         boolean result = msr_Capture(mDevId, 1);
-
-        double []d = new double[mSpdLen];
-
         if(result){
             getSpdFromDevice(mDevId);
             for(int i=0; i<mSpdLen; i++) {
-                d[i] = (double) mValueSpd[i];
+                mValueSpd_double[i] = (double) mValueSpd[i];
             }
         }else{
-            for(int i=0; i<mSpdLen; i++) {
-                d[i] = 0.0;
-            }
+            for(int i=0; i<mSpdLen; i++)
+                mValueSpd_double[i] = 0;
         }
-        return d;
+        return mValueSpd_double;
     }
 
     @Override
@@ -122,18 +117,7 @@ public class UprMeter implements SpectroStrategy{
         return path;
     }
 
-    private boolean initMKUSB(){
-        boolean result = true;
-        if(mIsInit == 0) {
-            MkLib.Instance.mk_Init(1, 300);
-            mIsInit = 1;
-        }
-        mValueSpd = new float[mSpdLen];
-        mValuewavelength = new float[mSpdLen];
-        return result;
-    }
-
-    private boolean openDevBySN(String sn){
+    public boolean openDevBySN(String sn){
         Integer id = -1;
         byte [] optsn = stringToCChar(sn);  // transfer string to C string, end by 0.
         // travsel, get device list by name, and OptSN
@@ -188,56 +172,6 @@ public class UprMeter implements SpectroStrategy{
         return name;
     }
 
-    private boolean isDevExist(ArrayList<String> l, String sn) {
-        if(l.size() ==0)
-            return false;
-        for (String item:l) {
-            String itemsn = getOptSNbyName(item);
-            if(itemsn.compareTo(sn)==0) {
-                mDevName = item;
-                mOptSN = sn;
-                return true;
-            }
-        }
-        return false;
-    }
-
-    // get device SN list, the sn equal usb serial number.
-    private ArrayList<String> getDevSNList(){
-        boolean result;
-        byte [] name = new byte[64];
-        ArrayList<String> list = new ArrayList<>();
-        result = MkLib.Instance.mk_FindFirst(name);
-        while(result){
-            int len = getByteCharterLen(name);
-            String tmp = new String(name, 0, len);
-            list.add(tmp);
-            result = MkLib.Instance.mk_FindNext(name);
-        }
-        return list;
-    }
-
-    // get device list by OptSN.
-    private ArrayList<String> getOptSNList(ArrayList<String> devname){
-        ArrayList<String>optsn = new ArrayList<>();
-        for (String item:devname) {
-            String s = getOptSNbyName(item);
-            if(s != null)
-                optsn.add(s);
-        }
-        return optsn;
-    }
-
-    private String getOptSNbyName(String name){
-        byte [] optsn = new byte[64];
-        byte [] n = name.getBytes();
-        boolean result;
-        result = MkLib.Instance.mk_GetOptSnByName(n, optsn);
-        int len = getByteCharterLen(optsn);
-        return new String(optsn, 0, len);
-
-    }
-
     private int getByteCharterLen(byte[] aa){
         int len = 0;
         for(int i=0; i<aa.length; i++){
@@ -247,25 +181,8 @@ public class UprMeter implements SpectroStrategy{
         return len;
     }
 
-    // get device optical sn.
-    private ArrayList<String> getDevOptSNList(){
-        boolean result;
-        byte [] name = new byte[64];
-        byte [] optsn = new byte[64];
-        ArrayList<String> list = new ArrayList<>();
-        result = MkLib.Instance.mk_FindFirst(name);
-        while(result){
-            MkLib.Instance.mk_GetOptSnByName(name, optsn);
-            int len = getByteCharterLen(optsn);
-            String tmp = new String(optsn, 0, len);
-            list.add(tmp);
-            result = MkLib.Instance.mk_FindNext(name);
-        }
-        return list;
-    }
-
     private boolean msr_Dark(Integer id){
-        boolean result = false;
+        boolean result = true;
         byte tmp[] = new byte[256];
         IntByReference errcode = new IntByReference();
 
@@ -296,7 +213,7 @@ public class UprMeter implements SpectroStrategy{
         result &= MkLib.Instance.mk_Msr_SetLightMode_PreScanPara(id, 1, (float) 0.3); // 1 is mean 1cycle time, 0.3 * full intensity
         result &= MkLib.Instance.mk_Msr_SetLightModeFlt(id, 1, mSyncFreq);
         result &= MkLib.Instance.mk_Msr_SetLightMode_CycleNumber(id, mCycNum);    //
-
+        result &= MkLib.Instance.mk_Msr_SetBoxcarFilter(id, 1, 1, 3);
         // set calibration channel
         result &= MkLib.Instance.mk_Msr_SetSpdRatioCH(id, mCalChSpdRatio);
         result &= MkLib.Instance.mk_Msr_SetSpdWLSCH(id, mCalChSpdWls);

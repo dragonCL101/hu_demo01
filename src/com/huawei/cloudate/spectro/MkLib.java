@@ -111,6 +111,8 @@ public interface MkLib extends Library{
 
     public boolean mk_Msr_SetLowLightFixedValue(int i, int ctrl, float value);
 
+    public boolean mk_Msr_SetBoxcarFilter(int i, int ctrl, int enHR, int size);
+
     public boolean mk_Msr_SetAutoDarkTemp(int i, int ctrl, float value, int tvalue);
 
     public boolean mk_GetData(int i, int type, FloatByReference data);
@@ -123,7 +125,7 @@ public interface MkLib extends Library{
 
     public boolean mk_GetMicroMole(int i, int str, int stp, FloatByReference data);
 
-    public boolean mk_GetOptSn(int i, ByReference sn);
+    public boolean mk_GetOptSn(int i, byte[] sn);
 
     public int mk_GetLightStrnegth(int i);
 
